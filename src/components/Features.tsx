@@ -34,7 +34,7 @@ export const Features = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Why Choose <span className="gradient-primary bg-clip-text text-transparent">Aloha</span>?
+            Why Choose <span className="gradient-primary bg-clip-text px-2">Aloha</span>?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Built for non-engineers who want powerful AI assistance without compromising on privacy or paying monthly subscriptions.

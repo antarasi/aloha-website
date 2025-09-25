@@ -5,7 +5,7 @@ export const AppPreview = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            See Aloha in <span className="gradient-accent bg-clip-text text-transparent">Action</span>
+            See Aloha in <span className="gradient-accent bg-clip-text px-2">Action</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Experience the power of a truly local AI assistant that can search the web, browse websites, and provide intelligent responses.

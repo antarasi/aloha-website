@@ -8,7 +8,7 @@ export const DownloadSection = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Get <span className="gradient-primary bg-clip-text text-transparent">Started</span>?
+            Ready to Get <span className="gradient-primary bg-clip-text px-2">Started</span>?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Download Aloha Desktop today and experience the future of private, local AI assistance.
