@@ -33,7 +33,7 @@ export const Hero = () => {
               { icon: Globe, text: "Web Search & Browse" },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-2 gradient-card px-4 py-2 rounded-full shadow-soft backdrop-blur-sm">
-                <Icon className="w-5 h-5 text-primary" />
+                <Icon className="w-5 h-5 text-accent" />
                 <span className="font-medium">{text}</span>
               </div>
             ))}

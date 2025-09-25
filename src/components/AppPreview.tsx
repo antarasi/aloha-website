@@ -37,7 +37,7 @@ export const AppPreview = () => {
                   text: "Tool capabilities",
                   messages: "2 messages"
                 }].map((chat, index) => <div key={index} className="flex items-center gap-3 p-3 rounded-lg hover:bg-background/50 transition-colors cursor-pointer">
-                      <chat.icon className="w-4 h-4 text-primary" />
+                      <chat.icon className="w-4 h-4 text-accent" />
                       <div className="flex-1 min-w-0">
                         <div className="text-sm font-medium truncate">{chat.text}</div>
                         <div className="text-xs text-muted-foreground">{chat.messages}</div>
@@ -69,7 +69,7 @@ export const AppPreview = () => {
                       </div>
                       <div className="bg-card p-4 rounded-2xl rounded-tl-md shadow-soft flex-1">
                         <div className="space-y-2">
-                          <div className="flex items-center gap-2 text-xs text-primary">
+                          <div className="flex items-center gap-2 text-xs text-accent">
                             <Search className="w-3 h-3" />
                             <span>Searching the web...</span>
                           </div>
@@ -105,7 +105,7 @@ export const AppPreview = () => {
           }].map((feature, index) => <Card key={index} className="p-6 gradient-card border-0 shadow-medium text-center animate-fade-in" style={{
             animationDelay: `${index * 0.1 + 0.5}s`
           }}>
-                <feature.icon className="w-8 h-8 text-primary mx-auto mb-3" />
+                <feature.icon className="w-8 h-8 text-accent mx-auto mb-3" />
                 <h3 className="font-semibold mb-2">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
               </Card>)}
