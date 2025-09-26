@@ -14,9 +14,9 @@ export const Hero = () => {
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
           {/* Hero headline */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Your <span className="gradient-primary bg-clip-text px-2">Local</span> AI Assistant
+          <span className="gradient-primary bg-clip-text px-2">AI</span> on your computer
             <br />
-            <span className="text-accent">Secure & Private</span>
+            <span className="text-accent">Private & Powerful</span>
           </h1>
           
           {/* Hero description */}

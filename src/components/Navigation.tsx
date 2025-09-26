@@ -11,8 +11,8 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">A</span>
+            <div className="rounded-lg flex items-center justify-center">
+              <img src="/icon.png" alt="Aloha Desktop" className="size-11" />
             </div>
             <span className="font-bold text-xl">Aloha Desktop</span>
           </div>
