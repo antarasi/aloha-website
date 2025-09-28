@@ -16,7 +16,7 @@ const features = [
   },
   {
     icon: Puzzle,
-    title: "Fully Extensible",
+    title: "Fully Extendable",
     description: "Customize and extend functionality with plugins. Integrate with your favorite tools and workflows seamlessly.",
     color: "text-primary"
   },

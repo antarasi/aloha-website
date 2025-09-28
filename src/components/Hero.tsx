@@ -21,7 +21,7 @@ export const Hero = () => {
           
           {/* Hero description */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Aloha Desktop is a powerful, extensible AI assistant that runs entirely on your computer. 
+            Aloha Desktop is a powerful, extendable AI assistant that runs entirely on your computer. 
             Search the web, browse websites, and get answers without compromising your privacy. 
             Designed for users, not engineers.
           </p>
