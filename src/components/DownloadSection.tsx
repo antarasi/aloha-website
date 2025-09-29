@@ -5,12 +5,6 @@ export const DownloadSection = () => {
   return (
     <section id="download" className="py-24 px-6">
       <div className="container mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Get <span className="gradient-primary bg-clip-text px-2">Started</span>?
-          </h2>
-        </div>
-
         <div className="max-w-4xl mx-auto">
           {/* Main download card */}
           <div className="p-12 text-center animate-scale-in">
