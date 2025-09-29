@@ -2,7 +2,8 @@ import { Check, X } from "lucide-react";
 
 const competitors = [
   {
-    name: "Aloha Desktop",
+    name: "Aloha",
+    img: "/logo.png",
     isOurProduct: true,
     features: {
       free: true,
@@ -16,7 +17,8 @@ const competitors = [
     }
   },
   {
-    name: "Ollama Desktop",
+    name: "Ollama",
+    img: "/ollama.png",
     isOurProduct: false,
     features: {
       free: true,
@@ -30,7 +32,8 @@ const competitors = [
     }
   },
   {
-    name: "Claude Desktop",
+    name: "Claude",
+    img: "/claude.png",
     isOurProduct: false,
     features: {
       free: false,
@@ -44,7 +47,8 @@ const competitors = [
     }
   },
   {
-    name: "ChatGPT Desktop",
+    name: "ChatGPT",
+    img: "/chatgpt.png",
     isOurProduct: false,
     features: {
       free: false,
@@ -90,8 +94,9 @@ export const Competitors = () => {
                 {competitors.map((competitor) => (
                 <th key={competitor.name} className="text-center p-6 font-semibold text-lg min-w-[140px]">
                     <div className="flex flex-col items-center space-y-2">
+                    <img src={competitor.img} alt={competitor.name} className="w-10 h-10" />
                     <span>
-                        {competitor.name}
+                        {competitor.name}<br />Desktop
                     </span>
                     </div>
                 </th>
@@ -107,7 +112,7 @@ export const Competitors = () => {
                     {competitor.features[dimension.key as keyof typeof competitor.features] ? (
                         <div className="flex justify-center">
                         <div className="w-8 h-8 flex items-center justify-center">
-                            <Check className={`w-6 h-6 mx-auto text-primary`} />                       </div>
+                            <Check className={`w-7 h-7 mx-auto text-primary`} />                       </div>
                         </div>
                     ) : (
                         <div className="flex justify-center">
