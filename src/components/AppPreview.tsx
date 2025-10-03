@@ -1,4 +1,4 @@
-import { Binoculars, Globe, Brain } from "lucide-react";
+import { Binoculars, Globe, Brain, Puzzle } from "lucide-react";
 export const AppPreview = () => {
   return <section id="demo" className="py-24 px-6 bg-muted/30">
       <div className="container mx-auto">
@@ -16,7 +16,7 @@ export const AppPreview = () => {
           </div>
 
           {/* Feature highlights */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="grid md:grid-cols-4 gap-6 mt-12">
             {[{
             icon: Binoculars,
             title: "Web Search",
@@ -29,8 +29,12 @@ export const AppPreview = () => {
             icon: Brain,
             title: "Thinking",
             description: "Aloha Desktop supports reasoning to enhance quality of the answers"
+          }, {
+            icon: Puzzle,
+            title: "Extendable",
+            description: "Unlock new capabilities with community plugins or build your own plugins"
           }].map((feature, index) => <div key={index} className="p-6 border-0 text-center animate-fade-in" style={{
-            animationDelay: `${index * 0.1 + 0.5}s`
+            animationDelay: `${index * 0.2 + 0.5}s`
           }}>
                 <feature.icon className="w-8 h-8 text-accent mx-auto mb-3" />
                 <h3 className="font-semibold mb-2">{feature.title}</h3>
