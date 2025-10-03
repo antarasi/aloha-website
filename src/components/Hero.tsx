@@ -13,7 +13,7 @@ export const Hero = () => {
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
           {/* Hero headline */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-          World's best <span className="gradient-primary bg-clip-text px-2">AI</span> on your computer
+          World's best <span className="gradient-primary bg-clip-text px-2">AI</span> on your device
             <br />
             <span className="text-accent">Private & Powerful</span>
           </h1>
