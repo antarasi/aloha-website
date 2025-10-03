@@ -1,9 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Download, Shield, EarthLock, MessageCircleHeart, ArrowDown, MousePointerClick, MonitorPlay, CirclePlay, Clapperboard } from "lucide-react";
+import { Shield, EarthLock, MessageCircleHeart } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center gradient-hero overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center gradient-hero overflow-hidden -z-10">
       {/* Background decorative elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float"></div>
@@ -38,21 +37,6 @@ export const Hero = () => {
                 <span className="font-medium">{text}</span>
               </div>
             ))}
-          </div>
-
-          <div className="">
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <Button variant="hero" size="lg">
-                <Clapperboard />
-                See it in action
-              </Button>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="pt-8 space-y-2">
-              <p className="text-sm text-muted-foreground">Free Forever • No Account Required • Open Source Plugins</p>
-            </div>
           </div>
         </div>
       </div>
