@@ -12,9 +12,8 @@ export const Hero = () => {
       <div className="container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
           {/* Hero headline */}
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-          World's best <span className="gradient-primary bg-clip-text px-2">AI</span> on your device
-            <br />
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight flex flex-col items-center justify-center gap-4">
+            <span>World's best <span className="gradient-primary bg-clip-text px-2">AI</span> on your device</span>
             <span className="text-accent">Private & Powerful</span>
           </h1>
           

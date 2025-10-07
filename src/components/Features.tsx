@@ -4,23 +4,19 @@ import useEmblaCarousel from "embla-carousel-react";
 const demoVideos = [
   {
     title: "Get the best AI models from the marketplace",
-    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    videoUrl: "/video/models-marketplace.mp4"
   },
   {
     title: "Summarize web pages",
-    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+    videoUrl: "/video/summarize.mp4"
   },
   {
     title: "Search Internet with natural language",
-    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+    videoUrl: "/video/web-search.mp4"
   },
   {
-    title: "Extend capabilities with plugins",
-    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
-  },
-  {
-    title: "Ask expert questions",
-    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+    title: "More accurate answers than other assistants",
+    videoUrl: "/video/sql.mp4"
   }
 ];
 
@@ -30,6 +26,7 @@ export const Features = () => {
     align: "center",
     containScroll: "trimSnaps"
   });
+
   const [selectedIndex, setSelectedIndex] = useState(Math.floor(demoVideos.length / 2));
 
   const scrollTo = useCallback((index: number) => {

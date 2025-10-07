@@ -1,24 +1,24 @@
 import { Button } from "@/components/ui/button";
-import { Download, Shield, Infinity, UserRoundX } from "lucide-react";
+import { Shield, Infinity, UserRoundX } from "lucide-react";
 
 export const DownloadSection = () => {
   return (
-    <section id="download" className="py-24 px-6">
+    <section id="download" className="py-28 px-6 gradient-hero relative">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }}></div>
+      </div>
+
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           {/* Main download card */}
           <div className="p-12 text-center animate-scale-in">
-            <div className="space-y-8">
-              <div className="w-20 h-20 gradient-primary rounded-3xl mx-auto flex items-center justify-center shadow-glow animate-glow">
-                <Download className="w-10 h-10 text-white" />
-              </div>
-              
-              <div className="space-y-4">
-                <h3 className="text-3xl font-bold">Download Aloha Desktop</h3>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Join thousands of users who trust Aloha as their private AI assistant
-                </p>
-              </div>
+            <div className="space-y-24">
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight flex flex-col items-center justify-center gap-10">
+                <span className="text-accent">Experience the magic ✨</span>
+                <span>Try it yourself <span className="">today</span>!</span>
+              </h1>
 
               <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto">
                 <Button variant="hero" size="lg" className="text-black">
