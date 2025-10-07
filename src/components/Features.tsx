@@ -1,11 +1,8 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { Pause } from "lucide-react";
 
 const demoVideos = [
-  {
-    title: "Get the best AI models from the marketplace",
-    videoUrl: "/video/models-marketplace.mp4"
-  },
   {
     title: "Summarize web pages",
     videoUrl: "/video/summarize.mp4"
@@ -17,7 +14,11 @@ const demoVideos = [
   {
     title: "More accurate answers than other assistants",
     videoUrl: "/video/sql.mp4"
-  }
+  },
+  {
+    title: "Get the best AI models from the marketplace",
+    videoUrl: "/video/models-marketplace.mp4"
+  },
 ];
 
 export const Features = () => {
@@ -27,7 +28,9 @@ export const Features = () => {
     containScroll: "trimSnaps"
   });
 
-  const [selectedIndex, setSelectedIndex] = useState(Math.floor(demoVideos.length / 2));
+  const [selectedIndex, setSelectedIndex] = useState( /* Math.floor(demoVideos.length / 2)*/ 0);
+  const [isVideoPaused, setIsVideoPaused] = useState(false);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const scrollTo = useCallback((index: number) => {
     if (emblaApi) emblaApi.scrollTo(index);
@@ -43,7 +46,23 @@ export const Features = () => {
     scrollTo(nextIndex);
   }, [selectedIndex, scrollTo]);
 
-  const handleVideoClick = useCallback((event: React.MouseEvent<HTMLVideoElement>) => {
+  const handleVideoClick = useCallback((event: React.MouseEvent<HTMLVideoElement>, index: number) => {
+    // If clicking on the current video, toggle play/pause
+    if (index === selectedIndex) {
+      const video = event.currentTarget;
+      if (video.paused) {
+        video.play().catch(() => {
+          // Ignore autoplay errors
+        });
+        setIsVideoPaused(false);
+      } else {
+        video.pause();
+        setIsVideoPaused(true);
+      }
+      return;
+    }
+
+    // If clicking on non-selected video, navigate to it
     const rect = event.currentTarget.getBoundingClientRect();
     const clickX = event.clientX - rect.left;
     const videoWidth = rect.width;
@@ -55,7 +74,7 @@ export const Features = () => {
       scrollToPrevious();
       
     }
-  }, [scrollToPrevious, scrollToNext]);
+  }, [selectedIndex, scrollToPrevious, scrollToNext]);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -77,6 +96,18 @@ export const Features = () => {
     emblaApi.scrollTo(selectedIndex, true); // true = instant scroll without animation
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emblaApi]);
+
+  // Restart video from beginning when slide changes
+  useEffect(() => {
+    const currentVideo = videoRefs.current[selectedIndex];
+    if (currentVideo) {
+      currentVideo.currentTime = 0;
+      currentVideo.play().catch(() => {
+        // Ignore autoplay errors (e.g., browser policies)
+      });
+      setIsVideoPaused(false);
+    }
+  }, [selectedIndex]);
 
   return (
     <section className="py-24 bg-muted/30">
@@ -111,16 +142,24 @@ export const Features = () => {
               className="flex-[0_0_90%] md:flex-[0_0_80%] xl:flex-[0_0_80%] 2xl:flex-[0_0_60%] min-w-0 max-w-[1000px]"
             >
               <div className="space-y-4">
-                <div className="rounded-lg overflow-hidden shadow-strong">
+                <div className="rounded-lg overflow-hidden shadow-strong relative">
                   <video
-                    className={`w-full h-auto aspect-video ${index !== selectedIndex ? 'cursor-pointer opacity-50' : ''}`}
+                    ref={(el) => (videoRefs.current[index] = el)}
+                    className={`w-full h-auto aspect-video cursor-pointer ${index !== selectedIndex ? 'opacity-50' : ''}`}
                     src={demo.videoUrl}
                     loop
                     autoPlay
                     muted
                     playsInline
-                    onClick={index !== selectedIndex ? handleVideoClick : undefined}
+                    onClick={(e) => handleVideoClick(e, index)}
                   />
+                  {index === selectedIndex && isVideoPaused && (
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="bg-black/50 rounded-full p-4">
+                        <Pause className="w-12 h-12 text-white" fill="white" />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
