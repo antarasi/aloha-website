@@ -4,18 +4,22 @@ import { Pause } from "lucide-react";
 
 const demoVideos = [
   {
+    emoji: "🌐",
     title: "Summarize web pages",
     videoUrl: "/video/summarize.mp4"
   },
   {
+    emoji: "🔭",
     title: "Search Internet with natural language",
     videoUrl: "/video/web-search.mp4"
   },
   {
+    emoji: "🎯",
     title: "More accurate answers than other assistants",
     videoUrl: "/video/sql.mp4"
   },
   {
+    emoji: "🤖",
     title: "Get the best AI models from the marketplace",
     videoUrl: "/video/models-marketplace.mp4"
   },
@@ -119,7 +123,7 @@ export const Features = () => {
               key={index}
               onClick={() => scrollTo(index)}
               className={`
-                flex-1 max-w-xs px-4 py-3 rounded-lg border-2 text-sm lg:text-base font-semibold transition-all duration-200 hover:scale-105
+                flex-1 max-w-xs px-4 py-3 rounded-lg border-2 text-sm lg:text-base font-semibold transition-all duration-200 hover:scale-105 flex flex-col items-center gap-2
                 ${selectedIndex === index 
                   ? 'border-green-500 text-green-600' 
                   : 'text-white border-muted-foreground/20 text-muted-foreground bg-background hover:border-muted-foreground/40'
@@ -127,7 +131,8 @@ export const Features = () => {
               `}
               aria-label={`View ${demo.title} demo`}
             >
-              {demo.title}
+              <span className="text-2xl">{demo.emoji}</span>
+              <span>{demo.title}</span>
             </button>
           ))}
         </div>
