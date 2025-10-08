@@ -1,9 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Download, Menu } from "lucide-react";
 import { useState } from "react";
+import github from "@/lib/github";
+import { useEffect } from "react";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    github.fetchAndStoreLatestRelease();
+  }, []);
 
   return (
     <nav className="fixed top-0 w-full z-50 gradient-card backdrop-blur-lg border-b border-border/50">

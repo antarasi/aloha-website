@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import github from "@/lib/github";
 import { Shield, Infinity, UserRoundX } from "lucide-react";
 
 export const DownloadSection = () => {
@@ -21,15 +22,15 @@ export const DownloadSection = () => {
               </h1>
 
               <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-                <Button variant="hero" size="lg" className="text-black">
+                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('windows')}>
                   <img src="/windows.svg" className="mr-2 h-5 w-5" />
                   Windows
                 </Button>
-                <Button variant="hero" size="lg" className="text-black">
+                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('macos')}>
                   <img src="/apple.svg" className="mr-2 h-5 w-5" />
                   macOS
                 </Button>
-                <Button variant="hero" size="lg" className="text-black">
+                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('linux')}>
                   <img src="/linux.svg" className="mr-2 h-5 w-5" />
                   Linux
                 </Button>
