@@ -76,7 +76,7 @@ const dimensions = [
 
 export const Competitors = () => {
   return (
-    <section className="py-24 px-6 bg-muted/30">
+    <section className="py-24 px-6 bg-muted/30" id="comparison">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

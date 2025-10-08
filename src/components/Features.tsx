@@ -114,16 +114,16 @@ export const Features = () => {
   }, [selectedIndex]);
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-24 bg-muted/30" id="features">
       <div className="container mx-auto">
         {/* Demo Navigation Tiles */}
-        <div className="flex justify-center gap-4 mb-8 px-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 px-4">
           {demoVideos.map((demo, index) => (
             <button
               key={index}
               onClick={() => scrollTo(index)}
               className={`
-                flex-1 max-w-xs px-4 py-3 rounded-lg border-2 text-sm lg:text-base font-semibold transition-all duration-200 hover:scale-105 flex flex-col items-center gap-2
+                px-4 py-3 rounded-lg border-2 text-sm lg:text-base font-semibold transition-all duration-200 hover:scale-105 flex flex-col items-center gap-2
                 ${selectedIndex === index 
                   ? 'border-green-500 text-green-600' 
                   : 'text-white border-muted-foreground/20 text-muted-foreground bg-background hover:border-muted-foreground/40'
