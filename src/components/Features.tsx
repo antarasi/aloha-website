@@ -152,8 +152,8 @@ export const Features = () => {
                     ref={(el) => (videoRefs.current[index] = el)}
                     className={`w-full h-auto aspect-video cursor-pointer ${index !== selectedIndex ? 'opacity-50' : ''}`}
                     src={demo.videoUrl}
+                    preload="metadata"
                     loop
-                    autoPlay
                     muted
                     playsInline
                     onClick={(e) => handleVideoClick(e, index)}
