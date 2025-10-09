@@ -12,16 +12,16 @@ export const DownloadSection = () => {
       </div>
 
       <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto">
           {/* Main download card */}
           <div className="p-12 text-center animate-scale-in">
             <div className="space-y-24">
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight flex flex-col items-center justify-center gap-10">
-                <span className="text-accent">Experience the magic ✨</span>
-                <span>Try it yourself <span className="">today</span>!</span>
+              <h1 className="font-bold leading-tight flex flex-col items-center justify-center gap-10">
+                <span className="text-7xl lg:text-8xl text-accent caveat-semibold">Experience the magic ✨</span>
+                <span className="text-4xl lg:text-6xl">Try it yourself today!</span>
               </h1>
 
-              <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
                 <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('windows')}>
                   <img src="/windows.svg" className="mr-2 h-5 w-5" />
                   Windows
