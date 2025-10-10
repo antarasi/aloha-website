@@ -11,7 +11,7 @@ export const DownloadSection = () => {
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }}></div>
       </div>
 
-      <div className="container mx-auto">
+      <div className="mx-auto">
         <div className="mx-auto">
           {/* Main download card */}
           <div className="p-12 text-center animate-scale-in">

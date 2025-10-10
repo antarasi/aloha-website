@@ -10,11 +10,11 @@ export const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 text-center">
-        <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
+        <div className="max-w-4xl mx-auto space-y-8 py-24 animate-fade-in">
           {/* Hero headline */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight flex flex-col items-center justify-center gap-4">
             <span>World's best <span className="gradient-primary bg-clip-text px-2">AI</span> on your device</span>
-            <span className="text-accent">Private & Powerful</span>
+            <span className="text-accent">Private &&nbsp;Powerful</span>
           </h1>
           
           {/* Hero description */}
