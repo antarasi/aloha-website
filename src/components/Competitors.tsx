@@ -107,7 +107,7 @@ export const Competitors = () => {
             <tbody>
             {dimensions.map((dimension, index) => (
                 <React.Fragment key={dimension.key}>
-                  <tr className="md:hidden">
+                  <tr className={`md:hidden ${index % 2 === 0 ? 'bg-background' : 'bg-muted/20'}`}>
                     <td className="pt-4 font-medium text-sm sm:text-base" colSpan={competitors.length}>
                       <span className="sticky left-0 pl-6 inline-block z-10">{dimension.label}</span>
                     </td>
