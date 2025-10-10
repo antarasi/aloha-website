@@ -1,4 +1,5 @@
 import { Check, X } from "lucide-react";
+import React from "react";
 
 const competitors = [
   {
@@ -76,7 +77,7 @@ const dimensions = [
 
 export const Competitors = () => {
   return (
-    <section className="py-24 bg-muted/30" id="comparison">
+    <section className="py-16 bg-muted/30" id="comparison">
       <div className="mx-auto">
         <div className="mb-12 text-center container">
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -105,32 +106,33 @@ export const Competitors = () => {
             </thead>
             <tbody>
             {dimensions.map((dimension, index) => (
-                <>
+                <React.Fragment key={dimension.key}>
                   <tr className="md:hidden">
                     <td className="pt-4 font-medium text-sm sm:text-base" colSpan={competitors.length}>
                       <span className="sticky left-0 pl-6 inline-block z-10">{dimension.label}</span>
                     </td>
                   </tr>
-                  <tr key={dimension.key} className={`border-b ${index % 2 === 0 ? 'bg-background' : 'bg-muted/20'}`}>
-                  <td className="p-3 md:p-6 font-medium text-right hidden md:table-cell">{dimension.label}</td>
-                  {competitors.map((competitor) => (
-                    <td key={`${competitor.name}-${dimension.key}`} className="text-center p-3">
-                      {competitor.features[dimension.key as keyof typeof competitor.features] ? (
-                        <div className="flex justify-center">
-                          <div className="w-8 h-8 flex items-center justify-center">
-                            <Check className={`w-7 h-7 mx-auto text-primary`} />                       </div>
-                        </div>
-                      ) : (
-                        <div className="flex justify-center">
-                          <div className="w-8 h-8 flex items-center justify-center">
-                            <X className="w-6 h-6 mx-auto text-muted-foreground/50" />
+                  <tr className={`border-b ${index % 2 === 0 ? 'bg-background' : 'bg-muted/20'}`}>
+                    <td className="p-3 md:p-6 font-medium text-right hidden md:table-cell">{dimension.label}</td>
+                    {competitors.map((competitor) => (
+                      <td key={`${competitor.name}-${dimension.key}`} className="text-center p-3">
+                        {competitor.features[dimension.key as keyof typeof competitor.features] ? (
+                          <div className="flex justify-center">
+                            <div className="w-8 h-8 flex items-center justify-center">
+                              <Check className={`w-7 h-7 mx-auto text-primary`} />                       
+                            </div>
                           </div>
-                        </div>
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              </>
+                        ) : (
+                          <div className="flex justify-center">
+                            <div className="w-8 h-8 flex items-center justify-center">
+                              <X className="w-6 h-6 mx-auto text-muted-foreground/50" />
+                            </div>
+                          </div>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+              </React.Fragment>
             ))}
             </tbody>
         </table>

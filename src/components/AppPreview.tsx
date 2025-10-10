@@ -1,6 +1,6 @@
 import { Binoculars, Globe, Brain, Puzzle } from "lucide-react";
 export const AppPreview = () => {
-  return <section className="py-24 px-6 bg-muted/30">
+  return <section className="pt-24 lg:pb-16 px-6 bg-muted/30">
       <div className="mx-auto">
         <div className="max-w-5xl mx-auto">
           {/* App demo GIF */}
@@ -30,7 +30,7 @@ export const AppPreview = () => {
           </div>
 
           {/* Feature highlights */}
-          <div className="grid md:grid-cols-4 gap-6 mt-12">
+          <div className="grid md:grid-cols-4 gap-6 mt-6">
             {[{
             icon: Binoculars,
             title: "Web Search",
