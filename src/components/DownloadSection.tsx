@@ -18,7 +18,7 @@ export const DownloadSection = () => {
             <div className="space-y-24">
               <h1 className="font-bold leading-tight flex flex-col items-center justify-center gap-10">
                 <span className="text-7xl lg:text-8xl text-accent caveat-semibold">Experience the magic ✨</span>
-                <span className="text-4xl lg:text-6xl">Try it yourself today!</span>
+                <span className="text-4xl lg:text-6xl">Make your computer smarter today!</span>
               </h1>
 
               <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">

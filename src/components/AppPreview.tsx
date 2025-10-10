@@ -6,7 +6,7 @@ export const AppPreview = () => {
           {/* App demo GIF */}
           <div className="z-10 sm:-mt-40">
             <div className="flex justify-center text-sm pb-2 text-muted-foreground text-center" id="demo">
-              This is a 1 minute demo shown at normal speed to demonstrate the real response time
+              This 1 minute demo is shown at normal speed to demonstrate the real response time
             </div>
             <div 
               className="relative w-full h-full border border-white/[0.2] bg-black rounded-[20px] p-[12px] overflow-hidden"
