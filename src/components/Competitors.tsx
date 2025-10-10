@@ -87,10 +87,10 @@ export const Competitors = () => {
           </p>
         </div>
 
-        <div className="overflow-x-auto">
+        <div>
         <table className="w-full max-w-[1352px] mx-auto">
-            <thead>
-            <tr className="border-b bg-muted/50">
+            <thead className="sticky top-16 z-20 bg-muted/95" >
+            <tr className="border-b">
                 <th className="text-left p-6 font-semibold text-base w-[333px] hidden md:table-cell"></th>
                 {competitors.map((competitor) => (
                 <th key={competitor.name} className="text-center p-3 md:p-6 font-semibold text-sm sm:text-base">
@@ -113,7 +113,7 @@ export const Competitors = () => {
                     </td>
                   </tr>
                   <tr className={`border-b ${index % 2 === 0 ? 'bg-background' : 'bg-muted/20'}`}>
-                    <td className="p-3 md:p-6 font-medium text-right hidden md:table-cell">{dimension.label}</td>
+                    <td className="p-3 md:py-6 font-medium text-right hidden md:table-cell">{dimension.label}</td>
                     {competitors.map((competitor) => (
                       <td key={`${competitor.name}-${dimension.key}`} className="text-center p-3">
                         {competitor.features[dimension.key as keyof typeof competitor.features] ? (
