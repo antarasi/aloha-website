@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
+import "plyr-react/plyr.css"
+import "./App.css"
 
 const queryClient = new QueryClient();
 
