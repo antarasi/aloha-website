@@ -21,6 +21,7 @@ export const AppPreview = () => {
               <video
                 className="w-full h-full rounded-[8px] block object-cover bg-transparent object-center cursor-auto"
                 src="/video/sf.mp4"
+                poster="/video/sf.webp"
                 loop
                 playsInline
                 autoPlay

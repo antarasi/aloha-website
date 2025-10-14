@@ -6,22 +6,26 @@ const demoVideos = [
   {
     emoji: "🌐",
     title: "Summarize web pages",
-    videoUrl: "/video/summarize.mp4"
+    videoUrl: "/video/summarize.mp4",
+    posterUrl: "/video/summarize.webp",
   },
   {
     emoji: "🔭",
     title: "Search Internet with natural language",
-    videoUrl: "/video/web-search.mp4"
+    videoUrl: "/video/web-search.mp4",
+    posterUrl: "/video/web-search.webp",
   },
   {
     emoji: "🎯",
     title: "More accurate answers than other assistants",
-    videoUrl: "/video/sql.mp4"
+    videoUrl: "/video/sql.mp4",
+    posterUrl: "/video/sql.webp",
   },
   {
     emoji: "🤖",
     title: "Get the best AI models from the marketplace",
-    videoUrl: "/video/models-marketplace.mp4"
+    videoUrl: "/video/models-marketplace.mp4",
+    posterUrl: "/video/models-marketplace.webp",
   },
 ];
 
@@ -152,6 +156,7 @@ export const Features = () => {
                     ref={(el) => (videoRefs.current[index] = el)}
                     className={`w-full h-auto aspect-video cursor-pointer ${index !== selectedIndex ? 'opacity-50' : ''}`}
                     src={demo.videoUrl}
+                    poster={demo.posterUrl}
                     preload="metadata"
                     loop
                     muted
