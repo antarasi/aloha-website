@@ -1,6 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { Pause } from "lucide-react";
 
 const demoVideos = [
   {
@@ -37,7 +36,6 @@ export const Features = () => {
   });
 
   const [selectedIndex, setSelectedIndex] = useState( /* Math.floor(demoVideos.length / 2)*/ 0);
-  const [isVideoPaused, setIsVideoPaused] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const scrollTo = useCallback((index: number) => {
@@ -55,17 +53,11 @@ export const Features = () => {
   }, [selectedIndex, scrollTo]);
 
   const handleVideoClick = useCallback((event: React.MouseEvent<HTMLVideoElement>, index: number) => {
-    // If clicking on the current video, toggle play/pause
+    // If clicking on the current video, open fullscreen
     if (index === selectedIndex) {
       const video = event.currentTarget;
-      if (video.paused) {
-        video.play().catch(() => {
-          // Ignore autoplay errors
-        });
-        setIsVideoPaused(false);
-      } else {
-        video.pause();
-        setIsVideoPaused(true);
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
       }
       return;
     }
@@ -113,7 +105,6 @@ export const Features = () => {
       currentVideo.play().catch(() => {
         // Ignore autoplay errors (e.g., browser policies)
       });
-      setIsVideoPaused(false);
     }
   }, [selectedIndex]);
 
@@ -154,7 +145,7 @@ export const Features = () => {
                 <div className="rounded-lg overflow-hidden shadow-strong relative">
                   <video
                     ref={(el) => (videoRefs.current[index] = el)}
-                    className={`w-full h-auto aspect-video cursor-pointer ${index !== selectedIndex ? 'opacity-50' : ''}`}
+                    className={`w-full h-auto aspect-video ${index !== selectedIndex ? 'opacity-50 cursor-pointer' : 'cursor-zoom-in'}`}
                     src={demo.videoUrl}
                     poster={demo.posterUrl}
                     preload="metadata"
@@ -163,13 +154,6 @@ export const Features = () => {
                     playsInline
                     onClick={(e) => handleVideoClick(e, index)}
                   />
-                  {index === selectedIndex && isVideoPaused && (
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="bg-black/50 rounded-full p-4">
-                        <Pause className="w-12 h-12 text-white" fill="white" />
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
