@@ -171,6 +171,10 @@ export const Features = () => {
           ))}
         </div>
       </div>
+
+      <div className="flex justify-center text-sm pb-2 text-muted-foreground text-center mt-6">
+        * all demos shown in real time
+      </div>
       
     </section>
   );
