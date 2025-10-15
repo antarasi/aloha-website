@@ -6,6 +6,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel"
+import powerSavingModePromise from "@/lib/power-mode";
 
 const demoVideos = [
   {
@@ -44,6 +45,7 @@ const demoVideos = [
 
 export const Features = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [powerSavingMode, setPowerSavingMode] = useState<boolean | undefined>(undefined);
   const [api, setApi] = useState<CarouselApi>();
   const players = useRef<Plyr[]>([]);
 
@@ -59,6 +61,14 @@ export const Features = () => {
       setSelectedIndex(api.selectedScrollSnap());
     });
   }, [api]);
+
+
+  // detect power saving mode
+  useEffect(() => {
+    powerSavingModePromise.then((mode) => {
+      setPowerSavingMode(mode);
+    });
+  }, []);
 
   // initial load
   useEffect(() => {
@@ -173,6 +183,12 @@ export const Features = () => {
       <div className="flex justify-center text-sm pb-2 text-muted-foreground text-center mt-6">
         All demos shown in real time
       </div>
+
+      {powerSavingMode && (
+        <div className="flex justify-center text-sm pb-2 text-muted-foreground text-center">
+          Videos may not display properly in power saving mode
+        </div>
+      )}
       
     </section>
   );
