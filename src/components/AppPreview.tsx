@@ -39,7 +39,8 @@ export const AppPreview = () => {
                   controls: ['play-large', 'play', 'current-time', 'fullscreen', 'restart'],
                   autoplay: true,
                   muted: true,
-                  loop: { active: true }
+                  loop: { active: true },
+                  fullscreen: { enabled: true, iosNative: true },
                 })}
               />
             </div>

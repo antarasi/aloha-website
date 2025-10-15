@@ -170,7 +170,8 @@ export const Features = () => {
                       autoplay: false,
                       playsinline: true,
                       muted: true,
-                      loop: { active: true }
+                      loop: { active: true },
+                      fullscreen: { enabled: true, iosNative: true },
                     })}
                   />
                 </div>
