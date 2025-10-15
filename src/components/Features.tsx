@@ -73,12 +73,12 @@ export const Features = () => {
   // initial load
   useEffect(() => {
     const activePlayer = players.current[selectedIndex];
-    if (activePlayer) {
+    if (activePlayer && powerSavingMode === false) { // auto play only if certainly not in power saving mode
       activePlayer.once('ready', () => {
         activePlayer.play();
       });
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps -- no dependencies, only run on initial load
+  }, [powerSavingMode]); // eslint-disable-line react-hooks/exhaustive-deps -- only powerSavingMode is a dependency, run on initial load
 
   // Restart video from beginning when slide changes
   useEffect(() => {
@@ -90,11 +90,11 @@ export const Features = () => {
       }
     });
 
-    if (activePlayer) {
+    if (activePlayer && !powerSavingMode) {
       // this may not work on initial load if the video is not ready, not expecting the video to autostart here
       activePlayer.play();
     }
-  }, [selectedIndex]);
+  }, [selectedIndex, powerSavingMode]);
 
   const onRefChange = useCallback((node: HTMLDivElement | null) => {
     if (node) { 
