@@ -2,6 +2,10 @@
   --plyr-color-main: #00ae6e;
 }
 
-.plyr video {
+.plyr .plyr__video-wrapper {
   border-radius: 8px;
+}
+.plyr .plyr__poster {
+  /* helps fill rounded corners with no offset from edges */
+  background-size: cover;
 }

@@ -1,13 +1,13 @@
-import { useState, useEffect, useRef } from "react";
-import Plyr, { PlyrInstance } from "plyr-react"
+import { useState, useEffect, useRef, useCallback } from "react";
+import Plyr from "plyr"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel"
 
 const demoVideos = [
-  {
-    emoji: "🌐",
-    title: "Summarize web pages",
-    videoUrl: "/video/summarize.mp4",
-    posterUrl: "/video/summarize.webp",
-  },
   {
     emoji: "🔭",
     title: "Search Internet with natural language",
@@ -15,10 +15,10 @@ const demoVideos = [
     posterUrl: "/video/web-search.webp",
   },
   {
-    emoji: "🎯",
-    title: "More accurate answers than other assistants",
-    videoUrl: "/video/sql.mp4",
-    posterUrl: "/video/sql.webp",
+    emoji: "🌐",
+    title: "Summarize web pages",
+    videoUrl: "/video/summarize.mp4",
+    posterUrl: "/video/summarize.webp",
   },
   {
     emoji: "🤖",
@@ -26,20 +26,53 @@ const demoVideos = [
     videoUrl: "/video/models-marketplace.mp4",
     posterUrl: "/video/models-marketplace.webp",
   },
+  {
+    emoji: "🎯",
+    title: "More accurate answers than other assistants",
+    videoUrl: "/video/sql.mp4",
+    posterUrl: "/video/sql.webp",
+  },
 ];
 
 export const Features = () => {
-  const DEFAULT_SELECTED_INDEX = 0; // Math.floor(demoVideos.length / 2)
-  const [selectedIndex, setSelectedIndex] = useState(DEFAULT_SELECTED_INDEX);
-  const videoRefs = useRef<(PlyrInstance | null)[]>([]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+  const players = useRef<Plyr[]>([]);
+
+  // Sync selectedIndex with carousel position
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setSelectedIndex(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setSelectedIndex(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   // Restart video from beginning when slide changes
   useEffect(() => {
-    const currentVideo = videoRefs.current[DEFAULT_SELECTED_INDEX];
-    if (currentVideo) {
-      currentVideo.restart();
+    const activePlayer = players.current[selectedIndex];
+
+    players.current.forEach((pausedPlayer) => {
+      if (pausedPlayer !== activePlayer) {
+        pausedPlayer.pause();
+      }
+    });
+
+    if (activePlayer) {
+      activePlayer.play();
     }
-  }, [videoRefs, DEFAULT_SELECTED_INDEX]);
+  }, [selectedIndex]);
+
+  const onRefChange = useCallback((node: HTMLVideoElement | null) => {
+    if (node) { 
+      const index = Number(node.dataset.videoIndex);
+      players.current[index] = new Plyr(node);
+    }
+  }, []);
 
   return (
     <section className="py-24 bg-muted/30" id="features">
@@ -49,7 +82,7 @@ export const Features = () => {
           {demoVideos.map((demo, index) => (
             <button
               key={index}
-              // onClick={() => scrollTo(index)}
+              onClick={() => api?.scrollTo(index)}
               className={`
                 px-4 py-3 rounded-lg border-2 text-sm lg:text-base font-semibold transition-all duration-200 hover:scale-105 flex flex-col items-center gap-2
                 ${selectedIndex === index 
@@ -67,41 +100,58 @@ export const Features = () => {
       </div>
 
       {/* Carousel */}
-      <div className="overflow-hidden">
-        <div className="flex gap-4 px-4 xl:gap-10 xl:px-10 2xl:gap-20 2xl:px-20">
+      <Carousel
+        setApi={setApi}
+        opts={{
+          align: "center",
+          loop: true,
+          containScroll: false,
+        }}
+        className="w-full"
+      >
+        <CarouselContent className="flex md:gap-4 xl:gap-10 xl:px-10 2xl:gap-20 2xl:px-20">
           {demoVideos.map((demo, index) => (
-            <div 
+            <CarouselItem 
               key={index} 
               className="flex-[0_0_90%] md:flex-[0_0_80%] xl:flex-[0_0_80%] 2xl:flex-[0_0_60%] min-w-0 max-w-[1000px]"
             >
-              <div className="space-y-4">
+              <div 
+                className="mx-auto max-w-[1000px]"
+                onClick={() => {
+                  if (index !== selectedIndex) {
+                    api?.scrollTo(index);
+                  }
+                }}
+              >
                 <div 
-                  className={`aspect-video rounded-lg overflow-hidden shadow-strong relative cursor-pointer ${index !== selectedIndex ? 'opacity-50' : ''}`} 
-                  // onClick={(e) => handleVideoClick(e, index)}
+                  className={`rounded-lg overflow-hidden shadow-strong relative transition-opacity duration-300 
+                    ${index !== selectedIndex ? 'opacity-50 cursor-pointer' : 'cursor-default'
+                  }`}
                 >
-                  <Plyr
-                    ref={(el) => (videoRefs.current[index] = el)}
-                    source={{
-                      type: 'video',
-                      sources: [{ src: demo.videoUrl, type: 'video/mp4' }],
-                      poster: demo.posterUrl
-                    }}
-                    options={{
-                      controls: index === selectedIndex ? ['play', 'current-time', 'fullscreen'] : [],
+                  <video 
+                    ref={onRefChange} 
+                    data-video-index={index}
+                    src={demo.videoUrl} 
+                    data-poster={demo.posterUrl} 
+                    className="aspect-video" 
+                    playsInline
+                    data-plyr-config={JSON.stringify({
+                      title: demo.title,
+                      controls: ['play-large', 'play', 'current-time', 'fullscreen', 'restart'],
                       autoplay: false,
                       muted: true,
                       loop: { active: true }
-                    }}                
+                    })}
                   />
                 </div>
               </div>
-            </div>
+            </CarouselItem>
           ))}
-        </div>
-      </div>
+        </CarouselContent>
+      </Carousel>
 
       <div className="flex justify-center text-sm pb-2 text-muted-foreground text-center mt-6">
-        * all demos shown in real time
+        All demos shown in real time
       </div>
       
     </section>
