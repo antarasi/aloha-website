@@ -13,24 +13,32 @@ const demoVideos = [
     title: "Search Internet with natural language",
     videoUrl: "/video/web-search.mp4",
     posterUrl: "/video/web-search.webp",
+    provider: 'vimeo',
+    videoId: '1127389107',
   },
   {
     emoji: "🌐",
     title: "Summarize web pages",
     videoUrl: "/video/summarize.mp4",
     posterUrl: "/video/summarize.webp",
+    provider: 'vimeo',
+    videoId: '1127389100',
   },
   {
     emoji: "🤖",
     title: "Get the best AI models from the marketplace",
     videoUrl: "/video/models-marketplace.mp4",
     posterUrl: "/video/models-marketplace.webp",
+    provider: 'vimeo',
+    videoId: '1127389090',
   },
   {
     emoji: "🎯",
     title: "More accurate answers than other assistants",
     videoUrl: "/video/sql.mp4",
     posterUrl: "/video/sql.webp",
+    provider: 'vimeo',
+    videoId: '1127389127',
   },
 ];
 
@@ -52,6 +60,16 @@ export const Features = () => {
     });
   }, [api]);
 
+  // initial load
+  useEffect(() => {
+    const activePlayer = players.current[selectedIndex];
+    if (activePlayer) {
+      activePlayer.once('ready', () => {
+        activePlayer.play();
+      });
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps -- no dependencies, only run on initial load
+
   // Restart video from beginning when slide changes
   useEffect(() => {
     const activePlayer = players.current[selectedIndex];
@@ -63,11 +81,12 @@ export const Features = () => {
     });
 
     if (activePlayer) {
+      // this may not work on initial load if the video is not ready, not expecting the video to autostart here
       activePlayer.play();
     }
   }, [selectedIndex]);
 
-  const onRefChange = useCallback((node: HTMLVideoElement | null) => {
+  const onRefChange = useCallback((node: HTMLDivElement | null) => {
     if (node) { 
       const index = Number(node.dataset.videoIndex);
       players.current[index] = new Plyr(node);
@@ -128,17 +147,18 @@ export const Features = () => {
                     ${index !== selectedIndex ? 'opacity-50 cursor-pointer' : 'cursor-default'
                   }`}
                 >
-                  <video 
+                  <div 
                     ref={onRefChange} 
                     data-video-index={index}
-                    src={demo.videoUrl} 
+                    data-plyr-provider={demo.provider}
+                    data-plyr-embed-id={demo.videoId}
                     data-poster={demo.posterUrl} 
                     className="aspect-video" 
-                    playsInline
                     data-plyr-config={JSON.stringify({
                       title: demo.title,
                       controls: ['play-large', 'play', 'current-time', 'fullscreen', 'restart'],
                       autoplay: false,
+                      playsinline: true,
                       muted: true,
                       loop: { active: true }
                     })}
