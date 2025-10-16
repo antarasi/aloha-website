@@ -172,6 +172,9 @@ export const Features = () => {
                       muted: true,
                       loop: { active: true },
                       fullscreen: { enabled: true, iosNative: true },
+                      vimeo: {
+                        background: true,
+                      },
                     })}
                   />
                 </div>
