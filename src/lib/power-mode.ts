@@ -23,7 +23,7 @@ export async function detectPowerSavingMode(): Promise<boolean | undefined> {
           const actualInterval = (performance.now() - startTime) / numFrames;
           const ratio = actualInterval / interval; // 1.3x or more in Low Power Mode, 1.1x otherwise
           // alert(actualInterval+' '+interval);
-          console.log(actualInterval, interval, ratio);
+          // console.log(actualInterval, interval, ratio);
           resolve(ratio > 1.3);
         }, interval);
       });

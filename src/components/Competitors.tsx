@@ -89,7 +89,7 @@ export const Competitors = () => {
 
         <div>
         <table className="w-full max-w-[1352px] mx-auto">
-            <thead className="sticky top-16 z-20 bg-muted/95" >
+            <thead className="sticky top-16 z-20 bg-muted/95 backdrop-blur-[10px]" >
             <tr className="border-b">
                 <th className="text-left p-6 font-semibold text-base w-[333px] hidden md:table-cell"></th>
                 {competitors.map((competitor) => (

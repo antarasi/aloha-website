@@ -12,7 +12,7 @@ export const Navigation = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 w-full z-50 gradient-card backdrop-blur-lg border-b border-border/50">
+    <nav className="fixed top-0 w-full z-50 bg-zinc-900/70 backdrop-blur-[10px] border-b border-border/50">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
