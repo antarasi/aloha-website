@@ -39,7 +39,7 @@ export const DownloadSection = () => {
               <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <Shield className="w-4 h-4 text-accent" />
-                  <span>100% Secure</span>
+                  <span>100% Private</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <UserRoundX className="w-4 h-4 text-accent" />
