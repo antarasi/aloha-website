@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+// @ts-ignore - Plyr types issue with default export
 import Plyr from "plyr"
 import {
   Carousel,

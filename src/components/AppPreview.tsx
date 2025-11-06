@@ -1,6 +1,7 @@
 import { Binoculars, Globe, Brain, Puzzle } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import powerSavingModePromise from "@/lib/power-mode";
+// @ts-ignore - Plyr types issue with default export
 import Plyr from "plyr";
 
 export const AppPreview = () => {
