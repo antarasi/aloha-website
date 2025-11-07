@@ -28,6 +28,7 @@ export const Navigation = () => {
             <a href="#demo" className="text-foreground hover:text-primary transition-colors">Demo</a>
             <a href="#features" className="text-foreground hover:text-primary transition-colors">Features</a>
             <a href="#comparison" className="text-foreground hover:text-primary transition-colors">Compare AI Desktop Apps</a>
+            <a href="#plugins" className="text-foreground hover:text-primary transition-colors">Plugins</a>
             <Button variant="hero" size="sm" onClick={() => window.location.href = "#download"}>
               <Download className="mr-2 h-4 w-4" />
               Download
