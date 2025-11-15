@@ -12,6 +12,9 @@ export const Footer = () => {
           </div>
           <div className="flex items-center space-x-4">
             <span className="text-sm text-muted-foreground">© All rights reserved</span>
+            <a href="https://github.com/antarasi/aloha-releases?tab=License-1-ov-file" target="_blank" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+              EULA
+            </a>
             <a href="https://github.com/antarasi/aloha-releases" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
               <Github className="w-5 h-5" />
             </a>
