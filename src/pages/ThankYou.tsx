@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Download, Sparkles } from "lucide-react";
 import confetti from "canvas-confetti";
 
 export const ThankYou = () => {
@@ -43,14 +42,14 @@ export const ThankYou = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 gradient-hero">
+    <div className="min-h-screen flex items-center justify-center px-6 py-24 gradient-hero relative animate-fade-in">
       {/* Background decorative elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }}></div>
       </div>
 
-      <div className="max-w-3xl mx-auto text-center space-y-8 animate-fade-in">
+      <div className="max-w-3xl mx-auto text-center space-y-8">
         <div className="space-y-4">
           <div className="flex justify-center">
             <div className="animate-pulse text-6xl">🎉</div>
@@ -58,18 +57,43 @@ export const ThankYou = () => {
           <h1 className="text-5xl lg:text-7xl font-bold">
             Thank You!
           </h1>
-          <p className="text-2xl lg:text-3xl caveat-semibold text-accent">
-            Your journey with AI begins now!
+          <p className="text-2xl lg:text-4xl caveat-semibold text-accent">
+            Your journey with local AI begins now!
           </p>
         </div>
 
-        <div className="space-y-6 py-8">
-          <p className="text-xl lg:text-2xl leading-relaxed">
-            <span className="font-semibold">Your download has started.</span>
-          </p>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get ready to experience the future of productivity. Aloha Desktop will transform 
-            the way you interact with your computer, making every task smarter, faster, and more intuitive.
+        <div className="p-6 lg:p-8 mx-auto">
+          <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start text-left">
+            <img 
+              src="/avatar.jpeg" 
+              alt="Creator" 
+              className="w-24 h-24 lg:w-32 lg:h-32 rounded-full object-cover flex-shrink-0 ring-4 ring-primary/20"
+            />
+            <div className="space-y-2 text-sm lg:text-base text-justify">
+              <p>
+                Aloha plugins turn AI into a Swiss Army knife - every tool you add unlocks a&nbsp;new capability on your device that you can interact with in natural language.
+                There's <span className="font-bold">no billing</span>, 
+                <span className="font-bold"> no cloud</span>,
+                <span className="font-bold"> no account required</span> — just good software,
+                and I like it that way.
+              </p>
+              <p>
+                Don't hesitate to reach out to me directly on <a href="https://www.linkedin.com/in/adrian-matylewicz/" target="_blank" className="text-primary hover:text-accent transition-colors font-semibold">LinkedIn</a> or <a href="https://github.com/antarasi/aloha-releases/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement" target="_blank" className="text-primary hover:text-accent transition-colors font-semibold">create a feature request on GitHub</a> if you have an idea how Aloha can make your life easier.
+              </p>
+              <p className="font-semibold text-right caveat-semibold text-xl md:text-2xl">
+                Adrian Matylewicz
+              </p>
+              <p className="text-right text-muted-foreground">
+                Senior Full-Stack Software Engineer @&nbsp;NVIDIA | Ex-Amazon
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-4 w-full px-6 left-0 right-0 text-center">
+          <p className="text-sm text-muted-foreground">
+            If your download didn't start 
+            you can find releases for all platforms <a href="https://github.com/antarasi/aloha-releases/releases" target="_blank" className="text-primary hover:text-accent transition-colors font-semibold">here</a>.
           </p>
         </div>
       </div>
