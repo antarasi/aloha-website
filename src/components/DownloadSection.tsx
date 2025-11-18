@@ -1,10 +1,16 @@
 import { Button } from "@/components/ui/button";
-import github from "@/lib/github";
+import github, { SupportedPlatforms } from "@/lib/github";
 import { Shield, Infinity, UserRoundX } from "lucide-react";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const DownloadSection = () => {
   const navigate = useNavigate();
+
+  const downloadClick = useCallback((platform: SupportedPlatforms) => {
+    github.downloadLatestReleaseAssetByPlatform(platform);
+    navigate('/thank-you');
+  }, [navigate]);
 
   return (
     <section id="download" className="py-28 px-6 gradient-hero relative">
@@ -25,15 +31,15 @@ export const DownloadSection = () => {
               </h1>
 
               <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('windows', navigate)}>
+                <Button variant="hero" size="lg" className="text-black" onClick={() => downloadClick('windows')}>
                   <img src="/windows.svg" className="mr-2 h-5 w-5" />
                   Windows
                 </Button>
-                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('macos', navigate)}>
+                <Button variant="hero" size="lg" className="text-black" onClick={() => downloadClick('macos')}>
                   <img src="/apple.svg" className="mr-2 h-5 w-5" />
                   macOS
                 </Button>
-                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('linux', navigate)}>
+                <Button variant="hero" size="lg" className="text-black" onClick={() => downloadClick('linux')}>
                   <img src="/linux.svg" className="mr-2 h-5 w-5" />
                   Linux
                 </Button>

@@ -1,12 +1,10 @@
+export type SupportedPlatforms = 'windows' | 'macos' | 'linux';
+
 class Github {
   private release: Record<string, unknown> | null = null;
   private readonly releaseFallbackUrl = 'https://github.com/antarasi/aloha-releases/releases/tag/v1.0.13';
 
-  private readonly platformAsset: {
-    windows: string;
-    macos: string;
-    linux: string;
-  } = {
+  private readonly platformAsset: Record<SupportedPlatforms, string> = {
     windows: '.exe',
     macos: '.dmg',
     linux: '.deb',
@@ -42,20 +40,12 @@ class Github {
     return this.getLatestReleaseAssets()?.find((asset) => asset?.name?.includes(include));
   }
 
-  downloadLatestReleaseAssetByPlatform(platform: keyof typeof this.platformAsset, navigate?: (path: string) => void) {
+  downloadLatestReleaseAssetByPlatform(platform: SupportedPlatforms) {
     const asset = this.getLatestReleaseAssetByPlatform(platform);
     const url = asset?.browser_download_url || this.releaseFallbackUrl;
     
-    // Mark that download was initiated
-    sessionStorage.setItem('downloadInitiated', 'true');
-    
     // Trigger download
     window.open(url, '_blank');
-    
-    // Navigate to thank you page if navigate function provided
-    if (navigate) {
-      navigate('/thank-you');
-    }
   }
 }
 

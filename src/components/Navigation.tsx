@@ -25,17 +25,11 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#demo" className="text-foreground hover:text-primary transition-colors">Demo</a>
-            <a href="#features" className="text-foreground hover:text-primary transition-colors">Features</a>
-            <a href="#comparison" className="text-foreground hover:text-primary transition-colors">Compare AI Desktop Apps</a>
-            <a href="#plugins" className="text-foreground hover:text-primary transition-colors">Plugins</a>
-            <Button variant="hero" size="sm" onClick={() => {
-              if (window.location.pathname === '/thank-you') {
-                window.location.href = "/#download";
-              } else {
-                window.location.href = "#download";
-              }
-            }}>
+            <a href="/#demo" className="text-foreground hover:text-primary transition-colors">Demo</a>
+            <a href="/#features" className="text-foreground hover:text-primary transition-colors">Features</a>
+            <a href="/#comparison" className="text-foreground hover:text-primary transition-colors">Compare Apps</a>
+            <a href="/#plugins" className="text-foreground hover:text-primary transition-colors">Plugins</a>
+            <Button variant="hero" size="sm" onClick={() => window.location.href = "/#download"}>
               <Download className="mr-2 h-4 w-4" />
               Download
             </Button>
@@ -56,17 +50,11 @@ export const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border/50 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <a href="#demo" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Demo</a>
-              <a href="#features" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Features</a>
-              <a href="#comparison" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Compare Desktop Apps</a>
-              <Button variant="hero" size="sm" onClick={() => { 
-                if (window.location.pathname === '/thank-you') {
-                  window.location.href = "/#download";
-                } else {
-                  window.location.href = "#download";
-                }
-                setIsOpen(false);
-              }}>
+              <a href="/#demo" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Demo</a>
+              <a href="/#features" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Features</a>
+              <a href="/#comparison" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Compare Apps</a>
+              <a href="/#plugins" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Plugins</a>
+              <Button variant="hero" size="sm" onClick={() => { window.location.href = "/#download"; setIsOpen(false) }}>
                 <Download className="mr-2 h-4 w-4" />
                 Download
               </Button>
