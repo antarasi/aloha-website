@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import github from "@/lib/github";
 import { Shield, Infinity, UserRoundX } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const DownloadSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="download" className="py-28 px-6 gradient-hero relative">
       {/* Background decorative elements */}
@@ -22,15 +25,15 @@ export const DownloadSection = () => {
               </h1>
 
               <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('windows')}>
+                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('windows', navigate)}>
                   <img src="/windows.svg" className="mr-2 h-5 w-5" />
                   Windows
                 </Button>
-                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('macos')}>
+                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('macos', navigate)}>
                   <img src="/apple.svg" className="mr-2 h-5 w-5" />
                   macOS
                 </Button>
-                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('linux')}>
+                <Button variant="hero" size="lg" className="text-black" onClick={() => github.downloadLatestReleaseAssetByPlatform('linux', navigate)}>
                   <img src="/linux.svg" className="mr-2 h-5 w-5" />
                   Linux
                 </Button>
