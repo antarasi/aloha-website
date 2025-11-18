@@ -29,7 +29,13 @@ export const Navigation = () => {
             <a href="#features" className="text-foreground hover:text-primary transition-colors">Features</a>
             <a href="#comparison" className="text-foreground hover:text-primary transition-colors">Compare AI Desktop Apps</a>
             <a href="#plugins" className="text-foreground hover:text-primary transition-colors">Plugins</a>
-            <Button variant="hero" size="sm" onClick={() => window.location.href = "#download"}>
+            <Button variant="hero" size="sm" onClick={() => {
+              if (window.location.pathname === '/thank-you') {
+                window.location.href = "/#download";
+              } else {
+                window.location.href = "#download";
+              }
+            }}>
               <Download className="mr-2 h-4 w-4" />
               Download
             </Button>
@@ -53,7 +59,14 @@ export const Navigation = () => {
               <a href="#demo" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Demo</a>
               <a href="#features" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Features</a>
               <a href="#comparison" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Compare Desktop Apps</a>
-              <Button variant="hero" size="sm" onClick={() => { window.location.href = "#download"; setIsOpen(false) }}>
+              <Button variant="hero" size="sm" onClick={() => { 
+                if (window.location.pathname === '/thank-you') {
+                  window.location.href = "/#download";
+                } else {
+                  window.location.href = "#download";
+                }
+                setIsOpen(false);
+              }}>
                 <Download className="mr-2 h-4 w-4" />
                 Download
               </Button>

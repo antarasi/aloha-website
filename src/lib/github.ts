@@ -42,10 +42,20 @@ class Github {
     return this.getLatestReleaseAssets()?.find((asset) => asset?.name?.includes(include));
   }
 
-  downloadLatestReleaseAssetByPlatform(platform: keyof typeof this.platformAsset) {
+  downloadLatestReleaseAssetByPlatform(platform: keyof typeof this.platformAsset, navigate?: (path: string) => void) {
     const asset = this.getLatestReleaseAssetByPlatform(platform);
     const url = asset?.browser_download_url || this.releaseFallbackUrl;
+    
+    // Mark that download was initiated
+    sessionStorage.setItem('downloadInitiated', 'true');
+    
+    // Trigger download
     window.open(url, '_blank');
+    
+    // Navigate to thank you page if navigate function provided
+    if (navigate) {
+      navigate('/thank-you');
+    }
   }
 }
 
