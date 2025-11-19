@@ -1,18 +1,15 @@
 export const AIModels = () => {
   const models = [
-    { name: "Alibaba", logo: "https://cdn.simpleicons.org/alibabacloud/FF6A00" },
-    { name: "Meta", logo: "https://cdn.simpleicons.org/meta/0668E1" },
-    { name: "Microsoft", logo: "https://cdn.simpleicons.org/microsoft/5E5E5E" },
-    { name: "NVIDIA", logo: "https://cdn.simpleicons.org/nvidia/76B900" },
+    { name: "Alibaba", logo: "/logo/alibaba.svg" },
+    { name: "Meta", logo: "/logo/meta.svg" },
+    { name: "Microsoft", logo: "/logo/microsoft.svg" },
+    { name: "NVIDIA", logo: "/logo/nvidia.svg" },
   ];
 
   return (
     <section className="py-20 px-6">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Powered by Leading AI Models
-          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Access cutting-edge AI technology from the world's top providers, all in one place
           </p>
