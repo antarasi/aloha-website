@@ -4,6 +4,7 @@ import { AppPreview } from "@/components/AppPreview";
 import { Competitors } from "@/components/Competitors";
 import { Plugins } from "@/components/Plugins";
 import { DownloadSection } from "@/components/DownloadSection";
+import { AIModels } from "@/components/AIModels";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Competitors />
       <Plugins />
       <DownloadSection />
+      <AIModels />
     </div>
   );
 };
