@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import github, { SupportedPlatforms } from "@/lib/github";
-import { Shield, Infinity, UserRoundX } from "lucide-react";
+import { Shield, Infinity, UserRoundX, BadgeCheck } from "lucide-react";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -57,6 +57,14 @@ export const DownloadSection = () => {
                 <div className="flex items-center gap-2">
                   <Infinity className="w-4 h-4 text-accent" />
                   <span>Free Forever</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <BadgeCheck className="w-4 h-4 text-accent" />
+                  <span>Code Signed by Microsoft</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <BadgeCheck className="w-4 h-4 text-accent" />
+                  <span>Code Signed & Notarized by Apple</span>
                 </div>
               </div>
             </div>
