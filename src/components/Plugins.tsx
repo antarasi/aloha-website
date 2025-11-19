@@ -30,10 +30,10 @@ export const Plugins = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                  <Store className="w-5 h-5 text-primary" />
+                  <Zap className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Publish to open marketplace</h3>
+                  <h3 className="text-lg font-semibold">Build fast with templates and examples</h3>
                 </div>
               </div>
 
@@ -48,10 +48,10 @@ export const Plugins = () => {
 
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                  <Zap className="w-5 h-5 text-primary" />
+                  <Store className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Build fast with templates and examples</h3>
+                  <h3 className="text-lg font-semibold">Publish to open marketplace</h3>
                 </div>
               </div>
             </div>

@@ -67,7 +67,7 @@ export const ThankYou = () => {
             <img 
               src="/avatar.jpeg" 
               alt="Creator" 
-              className="w-24 h-24 lg:w-32 lg:h-32 rounded-full object-cover flex-shrink-0 ring-4 ring-primary/20"
+              className="w-24 h-24 lg:w-32 lg:h-32 rounded-full object-cover flex-shrink-0 ring-4 ring-primary/20 mt-2"
             />
             <div className="space-y-2 text-sm lg:text-base text-justify">
               <p>
