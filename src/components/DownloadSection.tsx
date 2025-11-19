@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import github, { SupportedPlatforms } from "@/lib/github";
-import { Shield, Infinity, UserRoundX, BadgeCheck } from "lucide-react";
+import { Shield, Infinity, UserRoundX } from "lucide-react";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -30,19 +30,31 @@ export const DownloadSection = () => {
                 <span className="text-4xl lg:text-6xl">Make your computer smarter today!</span>
               </h1>
 
-              <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                <Button variant="hero" size="lg" className="text-black" onClick={() => downloadClick('windows')}>
-                  <img src="/windows.svg" className="mr-2 h-5 w-5" />
-                  Windows
-                </Button>
-                <Button variant="hero" size="lg" className="text-black" onClick={() => downloadClick('macos')}>
-                  <img src="/apple.svg" className="mr-2 h-5 w-5" />
-                  macOS
-                </Button>
-                <Button variant="hero" size="lg" className="text-black" onClick={() => downloadClick('linux')}>
-                  <img src="/linux.svg" className="mr-2 h-5 w-5" />
-                  Linux
-                </Button>
+              <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-end [&>div]:gap-4">
+                <div>
+                  <Button variant="hero" size="lg" className="text-black w-full" onClick={() => downloadClick('linux')}>
+                    <img src="/linux.svg" className="mr-2 h-5 w-5" />
+                    Linux
+                  </Button>
+                </div>
+                <div>
+                  <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                    <span>App Signed by Microsoft</span>
+                  </div>
+                  <Button variant="hero" size="lg" className="text-black w-full" onClick={() => downloadClick('windows')}>
+                    <img src="/windows.svg" className="mr-2 h-5 w-5" />
+                    Windows 
+                  </Button>
+                </div>
+                <div>
+                  <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                    <span>App Signed & Notarized by Apple</span>
+                  </div>
+                  <Button variant="hero" size="lg" className="text-black w-full" onClick={() => downloadClick('macos')}>
+                    <img src="/apple.svg" className="mr-2 h-5 w-5" />
+                    macOS
+                  </Button>
+                </div>
               </div>
 
               <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
@@ -57,14 +69,6 @@ export const DownloadSection = () => {
                 <div className="flex items-center gap-2">
                   <Infinity className="w-4 h-4 text-accent" />
                   <span>Free Forever</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <BadgeCheck className="w-4 h-4 text-accent" />
-                  <span>Code Signed by Microsoft</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <BadgeCheck className="w-4 h-4 text-accent" />
-                  <span>Code Signed & Notarized by Apple</span>
                 </div>
               </div>
             </div>
