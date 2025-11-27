@@ -113,7 +113,7 @@ export const Plugins = () => {
 
         {/* CTA Button */}
         <div className="text-center mt-12">
-          <Button size="lg" className="gap-2" onClick={() => window.open('https://github.com/antarasi/aloha-sdk/tree/main', '_blank')}>
+          <Button size="lg" className="gap-2" onClick={() => window.open('https://docs.alohadesktop.com/', '_blank')}>
             <ExternalLink className="w-5 h-5" />
             Start Building Your Plugin
           </Button>
