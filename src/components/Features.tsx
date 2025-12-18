@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-// @ts-ignore - Plyr types issue with default export
+// @ts-expect-error - Plyr types issue with default export
 import Plyr from "plyr"
 import {
   Carousel,
@@ -16,7 +16,7 @@ const demoVideos = [
     videoUrl: "/video/web-search.mp4",
     posterUrl: "/video/web-search.webp",
     provider: 'vimeo',
-    videoId: '1127389107',
+    videoId: '1147514389',
   },
   {
     emoji: "🌐",
@@ -24,7 +24,7 @@ const demoVideos = [
     videoUrl: "/video/summarize.mp4",
     posterUrl: "/video/summarize.webp",
     provider: 'vimeo',
-    videoId: '1127389100',
+    videoId: '1147514372',
   },
   {
     emoji: "🤖",
@@ -32,7 +32,7 @@ const demoVideos = [
     videoUrl: "/video/models-marketplace.mp4",
     posterUrl: "/video/models-marketplace.webp",
     provider: 'vimeo',
-    videoId: '1127389090',
+    videoId: '1147514309',
   },
   {
     emoji: "🎯",
@@ -40,7 +40,7 @@ const demoVideos = [
     videoUrl: "/video/sql.mp4",
     posterUrl: "/video/sql.webp",
     provider: 'vimeo',
-    videoId: '1127389127',
+    videoId: '1147514346',
   },
 ];
 

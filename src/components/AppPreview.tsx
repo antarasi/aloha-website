@@ -1,7 +1,7 @@
 import { Binoculars, Globe, Brain, Puzzle } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import powerSavingModePromise from "@/lib/power-mode";
-// @ts-ignore - Plyr types issue with default export
+// @ts-expect-error - Plyr types issue with default export
 import Plyr from "plyr";
 
 export const AppPreview = () => {
@@ -57,7 +57,7 @@ export const AppPreview = () => {
               <div 
                 ref={onRefChange}
                 data-plyr-provider="vimeo"
-                data-plyr-embed-id="1127389117"
+                data-plyr-embed-id="1147514329"
                 data-poster="/video/sf.webp" 
                 className="aspect-video" 
                 data-plyr-config={JSON.stringify({
